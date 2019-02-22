@@ -33,6 +33,16 @@ module.exports = {
             loader: "sass-loader" // compiles Sass to CSS
           }
         ]
+      },
+      {
+        test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
+        use: [{
+          loader: 'file-loader',
+          options: {
+            name: '[name].[ext]',
+            outputPath: 'fonts/'
+          }
+        }]
       }
     ]
   },
@@ -47,10 +57,6 @@ module.exports = {
       {
         from: 'src/img/',
         to: 'img'
-      },
-      {
-        from: 'src/fonts/',
-        to: 'fonts'
       },
       {
         from: 'src/index.html',
