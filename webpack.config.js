@@ -51,6 +51,10 @@ module.exports = {
       {
         from: 'src/fonts/',
         to: 'fonts'
+      },
+      {
+        from: 'src/index.html',
+        to: 'index.html'
       }
     ]),
     new ImageminPlugin([{
