@@ -3,7 +3,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 
 module.exports = {
-  entry: './src/index.js',
+  entry: ['./src/index.js'],
   output: {
     path: path.resolve(__dirname, 'public'),
     filename: 'js/bundle.js'
@@ -13,26 +13,12 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: ['env']
-          }
-        }
+        loader: 'babel-loader',
+        options: { presets: ['@babel/env'] }
       },
       {
         test: /\.scss$/,
-        use: [
-          {
-            loader: "style-loader" // creates style nodes from JS strings
-          },
-          {
-            loader: "css-loader" // translates CSS into CommonJS
-          },
-          {
-            loader: "sass-loader" // compiles Sass to CSS
-          }
-        ]
+        loader: 'style-loader!css-loader!sass-loader'
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,

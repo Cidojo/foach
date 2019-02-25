@@ -1,0 +1,43 @@
+.sign-up {
+  display: flex;
+  flex-wrap: wrap;
+
+  justify-content: space-between;
+}
+
+.sign-up__title {
+  width: 100%;
+  margin: 0;
+  margin-top: 50px;
+  padding: 5px 0 6px;
+  font-weight: normal;
+  line-height: 56px;
+  font-size: 44px;
+}
+
+.sign-up__title-short {
+  width: 100%;
+  margin-top: -5px;
+
+  line-height: 24px;
+  font-size: 20px;
+  letter-spacing: 0.005em;
+
+  color: #8A94A6;
+}
+
+.sign-up__figure {
+  flex-grow: 1;
+  margin: 0;
+  margin-left: 17px;
+  margin-top: 4px;
+  width: 562.5px;
+  box-sizing: border-box;
+}
+
+.sign-up__figcaption {
+  width: 450px;
+  margin-left: 101px;
+  line-height: 24px;
+  font-size: 14px;
+}

@@ -1,2 +1,2 @@
-import './js/test.js';
-import './scss/scaffolding.scss';
+import './js/main.js';
+import './scss/style.scss';

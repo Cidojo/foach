@@ -1,0 +1,83 @@
+.user-data {
+  display: flex;
+  flex-wrap: wrap;
+
+  width: 272.5px;
+  margin: 0;
+  padding: 0;
+
+  border: none;
+}
+
+.user-data input {
+  width: 100%;
+  height: 24.5px;
+
+  box-shadow: 0 1px 0 0 #E8EAED;
+  border: none;
+}
+
+.user-data label {
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #E8EAED;
+}
+
+.user-data__name-wrapper {
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  padding-bottom: 25px;
+}
+
+.user-data__name-wrapper::after {
+  content: "";
+
+  position: absolute;
+
+  bottom: 7px;
+  width: 100%;
+}
+
+.user-data__email-wrapper {
+  position: relative;
+
+  display: flex;
+  flex-wrap: wrap;
+
+  padding-bottom: 25px;
+}
+
+.user-data__email-wrapper::after {
+  content: "Incorrect address";
+
+  position: absolute;
+
+  bottom: 7px;
+  width: 100%;
+
+  font-size: 10px;
+  line-height: 12px;
+
+  color: #D82E2E;
+}
+
+.user-data__country-select,
+.user-data__age-select {
+  width: 100%;
+  padding: 0;
+
+  box-shadow: 0 1px 0 0 #E8EAED;
+  border: none;
+}
+
+.user-data__country-select {
+  margin-top: 14px;
+}
+
+.user-data__age-select {
+  margin-top: 37px;
+}

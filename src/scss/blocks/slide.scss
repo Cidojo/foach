@@ -1,0 +1,26 @@
+.slide {
+  width: 336px;
+  padding-bottom: 15px;
+
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 24px 40px rgba(57, 65, 74, 0.1);
+}
+
+.slide__title {
+  margin: 0;
+  margin-top: 10px;
+  padding: 5px 32px;
+
+  font-size: 28px;
+  font-weight: normal;
+  line-height: 36px;
+}
+
+.slide__img {
+}
+
+.slide__description {
+  margin: 0;
+  padding: 16px 32px;
+}
