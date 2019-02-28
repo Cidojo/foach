@@ -1,7 +1,7 @@
 import initSelectElements from './custom-select';
 import initSlider from './slider';
-import initFormValidation from './validation.js';
+import initFormManager from './form.js';
 
 initSlider();
 initSelectElements();
-initFormValidation();
+initFormManager();

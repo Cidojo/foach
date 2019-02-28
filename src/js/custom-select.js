@@ -45,7 +45,7 @@ export default () => {
 
     setOptionsList() {
       const onOptionClick = (e) => {
-        this.currentIndex = [...this.optionsList.children].indexOf(e.target.innerText);
+        this.currentIndex = [...this.optionsList.children].reduce((accum, option, i) => option.innerText === e.target.innerText ? i : accum);
 
         this.linkedSelect.selectedIndex = this.currentIndex;
         this.currentOption.innerText = e.target.innerText;
