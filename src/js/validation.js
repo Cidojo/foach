@@ -1,6 +1,6 @@
 export default () => {
   const form = document.querySelector(`.reg-form`);
-  const emailField = form.querySelector(`.user-data__email`);
+  const emailField = form.querySelector(`.user-data__email-input`);
   const passwordField = form.querySelector(`.password__input`);
   const passwordConfirmField = form.querySelector(`.password__input-confirm`);
   const passwordInfoRules = [...form.querySelectorAll(`.password__rule`)].map((rule) => {
@@ -16,15 +16,16 @@ export default () => {
     DIGIT: `digit`
   }
 
-  const passWordPatterns = {
+  const passwordPatterns = {
     [passwordRuleTypes.LENGTH]: /^\S{6,}$/,
     [passwordRuleTypes.CAPTION]: /[A-Z][a-z]|[a-z][A-Z]/,
-    [passwordRuleTypes.DIGIT]: /[!@#$%^&*()№?]+.*\d+|\d+.*[!@#$%^&*()№?]+/,
-    // EMAIL: /[-.\w]+@([\w-]+\.)+[\w-]{2,20}/
+    [passwordRuleTypes.DIGIT]: /[!@#$%^&*()№?]+.*\d+|\d+.*[!@#$%^&*()№?]+/
   }
 
+  const emailPattern = /[-.\w]+@([\w-]+\.)+[\w-]{2,20}/;
+
   const validatePasswordType = (password, type) => {
-    return passWordPatterns[type].test(password);
+    return passwordPatterns[type].test(password);
   }
 
   const renderValidityRule = (password) => {
@@ -40,14 +41,25 @@ export default () => {
     passwordField.classList.toggle(`password__input--valid`, allPassStatus);
   };
 
-  const onPasswordChange = (e) => {
-    const password = e.target.value;
+  const onPasswordChange = () => {
+    renderValidityRule(passwordField.value);
+    renderPasswordConfirmStatus();
+  }
 
-    renderValidityRule(password);
+  const renderPasswordConfirmStatus = () => {
+    passwordConfirmField.classList.toggle(`password__input-confirm--invalid`, !(passwordField.value === passwordConfirmField.value));
+  }
+
+  const onEmailChange = () => {
+    emailField.classList.toggle(`user-data__email-input--invalid`, !emailPattern.test(emailField.value));
   }
 
   passwordField.addEventListener(`input`, onPasswordChange);
-  passwordConfirmField.addEventListener(`input`, (e) => {
-    e.currentTarget.classList.toggle(`password__input-confirm--invalid`, !(passwordField.value === e.currentTarget.value));
-  });
+  passwordConfirmField.addEventListener(`input`, renderPasswordConfirmStatus);
+  passwordConfirmField.addEventListener(`input`, renderPasswordConfirmStatus);
+  emailField.addEventListener(`input`, onEmailChange);
+
+  form.addEventListener(`submit`, (e) => {
+    e.preventDefault();
+  })
 }

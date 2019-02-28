@@ -49,6 +49,8 @@
   box-shadow: 0 0 0 1px #8A94A6;
   border: 5px solid #FFF;
   border-radius: 50%;
+
+  cursor: pointer;
 }
 
 .gender input[type="radio"]:checked + label::before {

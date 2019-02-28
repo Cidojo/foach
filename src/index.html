@@ -175,7 +175,7 @@
       <section class="sign-up container">
         <h3 class="sign-up__title">Sign up</h3>
         <span class="sign-up__title-short">Register and share</span>
-        <form class="sign-up__reg-form reg-form" action="/">
+        <form class="sign-up__reg-form reg-form" action="/" method="POST">
           <fieldset class="reg-form__user-data user-data">
             <legend class="visually-hidden">user profile</legend>
 
@@ -191,7 +191,7 @@
             </div>
 
             <div class="user-data__country-select custom-select">
-              <select class="custom-select__default-select" type>
+              <select class="custom-select__default-select" name="country">
                 <option value="" required>Your country</option>
                 <option value="Russia" required>Russia</option>
                 <option value="USA" required>USA</option>
@@ -199,7 +199,7 @@
             </div>
 
             <div class="user-data__age-select custom-select">
-              <select class="custom-select__default-select" type>
+              <select class="custom-select__default-select" name="age">
                 <option value="" required>Your age</option>
                 <option value="23" required>23</option>
                 <option value="18" required>18</option>
