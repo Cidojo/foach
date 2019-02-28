@@ -1,8 +1,33 @@
 .rating {
+  display: flex;
   padding: 3px 32px;
 
   font-size: 14px;
   line-height: 16px;
 
   color: #8A94A6;
+}
+
+.rating__bar {
+  display: flex;
+  justify-content: space-between;
+
+  width: 35px;
+  margin: 0;
+  margin-left: 17.5px;
+  padding: 0;
+
+  list-style: none;
+}
+
+.rating__grade {
+  width: 4px;
+  height: 16px;
+
+  background-color: #E8EAED;
+  border-radius: 2px;
+}
+
+.rating__grade--fill {
+  background-color: #0070E0;
 }

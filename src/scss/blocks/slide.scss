@@ -1,4 +1,6 @@
 .slide {
+  position: relative;
+
   width: 336px;
   padding-bottom: 15px;
 
@@ -23,4 +25,47 @@
 .slide__description {
   margin: 0;
   padding: 16px 32px;
+}
+
+.slide__add-wrapper {
+  position: absolute;
+  top: 30px;
+  right: 20px;
+}
+
+.slide__add-button {
+  position: relative;
+  top: 184px;
+  right: 4px;
+
+  width: 48px;
+  height: 48px;
+  margin: 0;
+  padding: 0;
+
+  background-color: #0070E0;
+  border: none;
+  border-radius: 50%;
+}
+
+.slide__add-button::before,
+.slide__add-button::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+
+  display: block;
+
+  width: 17px;
+  height: 1.5px;
+
+  background-color: #FFF;
+}
+
+.slide__add-button::before {
+  transform: translateX(-50%);
+}
+
+.slide__add-button::after {
+  transform: translateX(-50%) rotate(90deg);
 }
