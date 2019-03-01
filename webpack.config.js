@@ -1,6 +1,7 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: ['./src/index.js'],
@@ -18,16 +19,22 @@ module.exports = {
       },
       {
         test: /\.scss$/,
-        loader: 'style-loader!css-loader!sass-loader'
+        use: [
+          MiniCssExtractPlugin.loader,
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          'postcss-loader',
+          'sass-loader'
+        ]
       },
       {
         test: /\.(woff(2)?|ttf|eot|svg)(\?v=\d+\.\d+\.\d+)?$/,
-        use: [{
-          loader: 'file-loader',
-          options: {
-            name: '[name].[ext]',
-            outputPath: 'fonts/'
-          }
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[name].[ext]',
+              outputPath: 'fonts/'
+            }
         }]
       }
     ]
@@ -39,6 +46,9 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
+      new MiniCssExtractPlugin({
+      filename: "css/style.min.css"
+    }),
     new CopyPlugin([
       {
         from: 'src/img/',

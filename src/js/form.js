@@ -84,11 +84,10 @@ export default () => {
 
   formContainer.addEventListener(`submit`, (e) => {
     e.preventDefault();
-     // if (getRequiredValidity()) {
-     debugger
+     if (getRequiredValidity()) {
        submit(getFormDataAsJson());
-     // } else {
-       // console.log(`invalid field(s), find and fix it`) // eslint-disable-line
-     // }
+     } else {
+       console.log(`invalid field(s), find and fix it`) // eslint-disable-line
+     }
   });
 }

@@ -1,0 +1,50 @@
+.modal {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  z-index: 5;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.modal--hidden {
+  display: none;
+}
+.modal__inner {
+  position: fixed;
+  left: 50%;
+  width: 400px;
+  margin-left: -200px;
+  top: 150px;
+  z-index: 5;
+  background-color: #ffffff;
+  padding: 30px;
+  border: 1px solid #000000;
+}
+.modal__close {
+  font-size: 0;
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 22px;
+  height: 22px;
+  background-color: transparent;
+  border: 0;
+  background-image: url("../img/cancel.svg");
+}
+.modal__message {
+  margin-bottom: 0;
+}
+.modal__message:first-of-type {
+  margin-top: 40px;
+}
+.modal__close:hover {
+  opacity: 0.8;
+}
+.modal__close:focus {
+  opacity: 0.7;
+}
+.modal__message {
+  padding-bottom: 0;
+}
