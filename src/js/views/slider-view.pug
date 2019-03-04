@@ -1,4 +1,6 @@
 - const maxRaiting = 5;
+- const ratingYeldFullColor = "#0070E0";
+- const ratingYeldEmptyColor = "#E8EAED";
 
 mixin sliderView(slides)
   ul.slider__list
@@ -9,9 +11,10 @@ mixin sliderView(slides)
           h3.slide__title= slide.title
           .slide__rating.rating
             span.rating__value= slide.rating.toFixed(1)
-            ul.rating__bar
-              - for (let i = 0; i <= maxRaiting; i++)
-                li(class="rating__grade" class={"rating__grade--fill": i <= Math.floor(slide.rating)})
+            .rating__bar
+              svg(width="36" height="17" viewBox="0 0 36 17" fill="none" xmlns="http://www.w3.org/2000/svg")
+                - for (let i = 0; i < maxRaiting; i++)
+                  rect(x = 8 * i y="0.991333" width="4" height="15.8957" rx="2" fill= i < Math.floor(slide.rating) ? ratingYeldFullColor : ratingYeldEmptyColor)
           p.slide__description= slide.description
           .slide__add-wrapper
             button.slide__add-button

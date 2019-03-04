@@ -25,9 +25,10 @@ module.exports = {
       {
         test: /\.scss$/,
         use: [
-          MiniCssExtractPlugin.loader,
-          { loader: 'css-loader', options: { importLoaders: 1 } },
+          {loader: MiniCssExtractPlugin.loader, options: {publicPath: '../'} },
+          { loader: 'css-loader', options: {importLoaders: 1} },
           'postcss-loader',
+          'resolve-url-loader',
           'sass-loader'
         ]
       },
@@ -38,7 +39,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               name: '[name].[ext]',
-              outputPath: 'fonts/'
+              outputPath: 'fonts'
             }
         }]
       }
@@ -51,11 +52,11 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.pug'
-    }),
     new MiniCssExtractPlugin({
-      filename: "css/style.min.css"
+      filename: 'css/style.min.css'
+    }),
+    new HtmlWebpackPlugin({
+      template: 'src/index.pug'
     }),
     new CopyPlugin([
       {
