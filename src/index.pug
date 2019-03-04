@@ -1,0 +1,32 @@
+- slidesData = require('./data/slides.js').default;
+- articleData = require('./data/article.js').default;
+- countriesData = require('./data/countries.js').default;
+include js/views/slider-view
+include js/views/article-view
+include js/views/reg-form-view
+include js/views/modal-error-view
+include js/views/modal-success-view
+
+doctype html
+html
+  head(lang="en")
+    meta(charset="UTF-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+    title Nonsense Press Journal
+    link(rel="stylesheet" href="css/style.min.css")
+
+  body
+    main
+      h1.visually-hidden Article
+      section.container.slider
+        h2.visually-hidden Slider
+        .slider__wrapper
+          +sliderView(slidesData)
+      section.container.article__wrapper
+        +articleView(articleData)
+      section.sign-up.container
+        h3.sign-up__title Sign up
+        span.sign-up__title-short Register and share
+        +regForm(countriesData)
+      +modalError
+      +modalSuccess

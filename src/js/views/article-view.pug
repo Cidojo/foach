@@ -1,0 +1,16 @@
+mixin articleView(data)
+  h2.article__title= data.title
+  p.article__desc= data.description
+  article.article
+    aside.article__img-wrapper
+      img.article__img(src="img/img_article.png" width="259.5" height="886.5" alt="article picture")
+      .article__img-text
+        h3 Introduction
+        p Nextgen advertising right now
+    p.article__text.article__text--intro= data.intro
+    .article__main
+      p.article__text= data.p1
+      .article__promo= data.promo
+      p.article__text= data.p2
+      p.article__text.article__text--small= data.small
+      p.article__text= data.p3

@@ -14,3 +14,6 @@ extends:
 rules:
   no-trailing-spaces:
     - error
+
+plugins:
+  - pug

@@ -1,0 +1,53 @@
+- const ageRanges = [18, 100];
+
+mixin regForm(countries)
+  form.sign-up__reg-form.reg-form(action="/" method="POST")
+    fieldset.reg-form__user-data.user-data
+      legend.visually-hidden user profile
+      .user-data__name-wrapper
+        label(for="user-data__name") Your name
+        input#user-data__name.user-data__name-input(type="text" placeholder="Name Username" required)
+
+      .user-data__email-wrapper
+        label(for="user-data__email") E-mail
+        input#user-data__email.user-data__email-input(type="email" name="email" placeholder="olololo@_" required)
+        span.user-data__email-status Incorrect address
+
+      .user-data__country-select.custom-select
+        select.custom-select__default-select(name="country" required)
+          option(value="") Your country
+          each country in countries
+            option(value=country.id)= country.name
+
+      .user-data__age-select.custom-select
+        select.custom-select__default-select(name="age" required)
+          option(value="") Your age
+          - for (let i = ageRanges[0]; i <= ageRanges[1]; i++)
+            option(value = i)= i
+
+    fieldset.reg-form__password.password
+      legend.visually-hidden Password
+      .password__input-wrapper
+        label.password__input-label Password
+        input#password__input.password__input(name="password__input" type="password" placeholder="***********")
+        span.password__input-status Good pass
+      .password__input-confirm-wrapper
+        input.password__input-confirm(type="password" placeholder="Confirm password")
+        span.password__input-confirm-status Doesn't match
+      ul.password__rules
+        li.password__rule.password__rule--length Не менее 6 символов
+        li.password__rule.password__rule--caption Заглавные и строчные буквы
+        li.password__rule.password__rule--digit Цифры и специальные знаки
+    fieldset.reg-form__gender.gender
+      legend.gender__legend Gender:
+      input#gender__male(type="radio" name="gender" value="Male" checked)
+      label(for="gender__male") Male
+      input#gender__female(type="radio" name="gender" value="Female")
+      label(for="gender__female") Female
+    button.reg-form__submit(type="submit") Sign up
+  figure.sign-up__figure
+    img(src="img/img_form.png" width="562.5" height="354" alt="career progress")
+    figcaption.sign-up__figcaption.
+      Значимость этих проблем настолько очевидна, что рамки и место
+      обучения кадров в значительной степени обуславливает создание
+      форм развития.

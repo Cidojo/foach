@@ -1,0 +1,22 @@
+- const maxRaiting = 5;
+
+mixin sliderView(slides)
+  ul.slider__list
+    each slide in slides
+      li.slider__item
+        article.slide
+          img.slide__img(src=`img/${slide.img}` width="336" height="238.5" alt=slide.title)
+          h3.slide__title= slide.title
+          .slide__rating.rating
+            span.rating__value= slide.rating.toFixed(1)
+            ul.rating__bar
+              - for (let i = 0; i <= maxRaiting; i++)
+                li(class="rating__grade" class={"rating__grade--fill": i <= Math.floor(slide.rating)})
+          p.slide__description= slide.description
+          .slide__add-wrapper
+            button.slide__add-button
+  .slider__controls
+    .slider__button-wrapper.slider__button-wrapper--prev
+      button.slider__button.slider__button--prev
+    .slider__button-wrapper.slider__button-wrapper--next.slider__button-wrapper--active
+      button.slider__button.slider__button--next

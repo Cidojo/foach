@@ -1,7 +1,8 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: ['./src/index.js'],
@@ -16,6 +17,10 @@ module.exports = {
         exclude: /node_modules/,
         loader: 'babel-loader',
         options: { presets: ['@babel/env'] }
+      },
+      {
+        test: /\.pug$/,
+        loader: 'pug-loader'
       },
       {
         test: /\.scss$/,
@@ -46,17 +51,16 @@ module.exports = {
   },
   devtool: 'source-map',
   plugins: [
-      new MiniCssExtractPlugin({
+    new HtmlWebpackPlugin({
+      template: './src/index.pug'
+    }),
+    new MiniCssExtractPlugin({
       filename: "css/style.min.css"
     }),
     new CopyPlugin([
       {
         from: 'src/img/',
         to: 'img'
-      },
-      {
-        from: 'src/index.html',
-        to: 'index.html'
       }
     ]),
     new ImageminPlugin([{
