@@ -33,6 +33,7 @@ class Slider {
     this.setCurrentSlideIndex(this.currentSlideIndex + 1);
 
     this.slides[this.hashOrderToIndex(this.options.slidesToShow - 1)].classList.remove(`slider__item--last`);
+    this.slides[this.hashOrderToIndex(this.options.slidesToShow - 2)].classList.remove(`slider__item--last`);
     this.slides[this.hashOrderToIndex(this.options.slidesToShow)].classList.add(`slider__item--last`);
 
 
@@ -43,9 +44,9 @@ class Slider {
 
   onPrevClick() {
     this.setCurrentSlideIndex(this.currentSlideIndex - 1);
+    this.slides[this.hashOrderToIndex(this.options.slidesToShow)].classList.remove(`slider__item--last`);
     this.slides[this.hashOrderToIndex(this.options.slidesToShow + 1)].classList.remove(`slider__item--last`);
-    this.slides[this.hashOrderToIndex(this.options.slidesToShow - 1)].classList.remove(`slider__item--last`);
-    this.slides[this.hashOrderToIndex(this.options.slidesToShow - 2)].classList.add(`slider__item--last`);
+    this.slides[this.hashOrderToIndex(this.options.slidesToShow - 1)].classList.add(`slider__item--last`);
 
 
     this.slides.forEach((slide, i) => {
